@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 const app = express()
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: "http://localhost:5173",
     credentials: true
 }))
 
@@ -18,7 +18,7 @@ app.use(cookieParser())
 //routes import
 
 import userRouter from './routes/user.routes.js'
-
+import appointmentRoutes from './routes/appointment.routes.js'
 
 
 
@@ -28,6 +28,7 @@ import userRouter from './routes/user.routes.js'
 //routes declaration
 
 app.use("/api/v1/users", userRouter)
+app.use("/api/v1/appointments", appointmentRoutes);
 
 
 
